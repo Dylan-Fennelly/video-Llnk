@@ -72,7 +72,7 @@ body
 
 <body>
 
-<a id="videoLink" class="video" target="_blank">
+<a id="videoLink" class="video">
 
 <img id="thumbnail">
 
@@ -95,12 +95,11 @@ const thumbnail = document.getElementById("thumbnail");
 if(videoId)
 {
     link.href = "https://www.youtube.com/watch?v=" + videoId;
-    thumbnail.src = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg";
+    thumbnail.src = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
 }
 else
 {
-    link.href = "https://youtube.com";
-    thumbnail.src = "https://img.youtube.com/vi/tkLVbp0IH_E/maxresdefault.jpg";
+    document.body.innerHTML = "<p style='color:white;font-family:sans-serif'>Missing video id</p>";
 }
 
 </script>
