@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Video</title>
+
+<style>
+
+body
+{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#111;
+    font-family:Arial, sans-serif;
+}
+
+.video
+{
+    position:relative;
+    width:min(90vw,900px);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 12px 40px rgba(0,0,0,0.6);
+}
+
+.video img
+{
+    width:100%;
+    display:block;
+}
+
+.play
+{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90px;
+    height:60px;
+    background:red;
+    border-radius:14px;
+}
+
+.play:after
+{
+    content:'';
+    position:absolute;
+    left:34px;
+    top:18px;
+    border-left:22px solid white;
+    border-top:14px solid transparent;
+    border-bottom:14px solid transparent;
+}
+
+.caption
+{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:12px;
+    background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<a id="videoLink" class="video" target="_blank">
+
+<img id="thumbnail">
+
+<div class="play"></div>
+
+<div class="caption">
+Open video on YouTube
+</div>
+
+</a>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const videoId = params.get("id");
+
+const link = document.getElementById("videoLink");
+const thumbnail = document.getElementById("thumbnail");
+
+if(videoId)
+{
+    link.href = "https://www.youtube.com/watch?v=" + videoId;
+    thumbnail.src = "https://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg";
+}
+else
+{
+    link.href = "https://youtube.com";
+    thumbnail.src = "https://img.youtube.com/vi/tkLVbp0IH_E/maxresdefault.jpg";
+}
+
+</script>
+
+</body>
+</html>
